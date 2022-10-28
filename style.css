@@ -1,0 +1,134 @@
+.split {
+    display: flex;
+    flex-direction: row;
+}
+
+.gutter {
+    /* background-color: #eee; */
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}
+
+
+
+/* Sidebar style*/
+.search-box{
+    padding: 2px;
+    display: inline-block;
+    border-radius: 1px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 300px;
+    background:#FAFAFA;
+}
+.search-box .search-field {
+    border: none;
+    background: none;
+    outline: none;
+}
+.search-box .search-btn {
+    border: none;
+    background: none;
+    outline: none;
+}
+.temp-structure ul{
+    list-style: none;
+
+}
+
+.temp-structure ul li a {
+	display: block;
+	padding: 10px 15px;
+	color: #333;
+	text-decoration: none;
+	-webkit-transition: 0.2s linear;
+	-moz-transition: 0.2s linear;
+	-ms-transition: 0.2s linear;
+	-o-transition: 0.2s linear;
+	transition: 0.2s linear;
+}
+.temp-structure ul li a:hover {
+	background: #f8f8f8;
+	color: #515151;
+}
+.temp-structure ul li a .fa {
+	width: 16px;
+	text-align: center;
+	margin-right: 5px;
+	float:right;
+}
+.temp-structure ul ul {
+	background-color:#ebebeb;
+}
+.temp-structure ul li ul li a {
+	border-left: 4px solid transparent;
+	padding: 10px 20px;
+}
+.temp-structure ul li ul li a:hover {
+	border-left: 4px solid #3498db;
+}
+.temps{
+    overflow-y: scroll;
+    height: 62vh;
+}
+
+.hide{
+    display: none !important;
+    visibility: hidden;
+}
+.footer{
+    height: 10px;
+}
+
+/* Scrollbar style*/
+*::-webkit-scrollbar {
+    width: 5px;               /* width of the entire scrollbar */
+  }
+  
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgb(116, 116, 116);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+  }
+
+/*Content Consistency style*/
+.nt-li:focus,
+.nt-li.active {
+  background-color: #f9fafb;
+}
+
+.nt-li:focus *,
+.nt-li.active * {
+  color: black!important;
+}
+
+.nt-li>.d-flex:hover {
+  background-color: #f8f9fa;
+}
+
+/*word document view*/
+.sections{
+    border: 1px solid rgb(190, 190, 255);
+    border-radius: 10px;
+}
+.sections.selected{
+    border: 1px solid rgb(110, 110, 255);
+    border-radius: 10px;
+}
+.sections:hover{
+    cursor: pointer;
+    border: 2px solid blue;
+    border-radius: 10px;
+}
+
+.draggable{
+    
+}
+.draggable.dragging{
+    opacity: .5;
+}

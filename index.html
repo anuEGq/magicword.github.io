@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Word</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./dropdown.js"></script>
+    <script src="./drag.js"></script>
+    <script src="./tree.js"></script>
+    <script type="module" src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="header">
+        <nav class="navbar bg-light shadow-sm  bg-body rounded">
+            <div class="container-fluid ">
+              <a class="nav" href="#">
+                <img alt="product-logo" src="/ConversionScreen/assets/images/Brand logo.svg" alt="Logo" width="150" height="50" class="d-inline-block align-text-top">
+              </a>
+              <a class="nav" href="#">
+                <img alt="user-profile-picture" style="border-radius: 100%;" src="/ConversionScreen/assets/images/user.png" alt="Logo" width="40" height="40" class="user-profile d-inline-block align-text-top">
+              </a>
+            </div>
+          </nav>
+          <div class="container-fluid bg-light d-flex justify-content-between p-2">
+                <button class="btn btn-primary" tabindex="0"><i class="fa-solid fa-house"></i> Home</button>
+                <div class="save-btns">
+                  <button onClick="clearAllSelections();" class="save-btn btn btn-danger" tabindex="0"><i class="fa-solid fa-floppy-disk"></i> Clear All</button>
+                  <button class="save-btn btn btn-primary" tabindex="0"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+                  <button class="save-continue-btn btn btn-primary" tabindex="0"><i class="fa-sharp fa-solid fa-arrow-right"></i> Save And Continue</button>
+                </div>
+          </div>
+    </div>
+    <div class="container-fluid bg-light">
+      <div class="row p-2">
+        <div class="col-2 p-2 bg-white temp-structure rounded shadow-sm">
+            <h6>Template Structure</h6>
+            <div class="search-box shadow-sm mt-1 mb-2">
+              <input class="search-field" type="text" name="search" placeholder="Search Here">
+              <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <ul class="temps p-0">
+              <li id="l_10" class='sub-menu '><a class="d-flex justify-content-between" href="javascript:openDropdown('10')" >Title<div id="caret_10" class='fa fa-caret-down right'></div></a>
+                <ul id="sub_10" class="sub-lists hide p-0">
+                  <li><a href='#'>H1</a></li>
+                  <li><a href='#'>H2</a></li>
+                  <li id="l_15" class='sub-menu '><a class="d-flex justify-content-between" href="javascript:openDropdown('15')" >Title<div id="caret_15" class='fa fa-caret-down right'></div></a>
+                    <ul id="sub_15" class="sub-lists hide p-0">
+                      <li><a href='#'>H1</a></li>
+                      <li><a href='#'>H2</a></li>
+                      <li><a href='#'>H3</a></li>
+                      <li><a href='#'>H4</a></li>
+                      <li><a href='#'>H5</a></li>
+                    </ul>
+                  </li>
+                  <li><a href='#'>H4</a></li>
+                  <li><a href='#'>H5</a></li>
+                </ul>
+              </li>
+              <li><a href='#'>Component 2</a></li>
+              <li id="l_12" class='sub-menu '><a class="d-flex justify-content-between" href="javascript:openDropdown('12')" >Title<div id="caret_12" class='fa fa-caret-down right'></div></a>
+                <ul id="sub_12" class="sub-lists hide p-0">
+                  <li><a href='#'>H1</a></li>
+                  <li><a href='#'>H2</a></li>
+                  <li><a href='#'>H3</a></li>
+                  <li><a href='#'>H4</a></li>
+                  <li><a href='#'>H5</a></li>
+                </ul>
+              </li>
+            </ul>
+        </div>
+        <div class="col-10 main-container pe-0">
+          <div  class="split">
+            <div id="split-0">
+              <div class="p-2 bg-white rounded-bottom shadow-sm position-relative">
+               <h6>DocumentTitle.docx</h6>
+              </div>
+              <div class="bg-white overflow-auto rounded-bottom shadow-sm p-3 text-justify" style="height: 77vh;">
+                  <div class = "element-container">
+                    <span class="badge bg-primary hide position-absolute">Title - H1</span>
+                    <div draggable="true" onClick="selectElement(1, event)"  id="sec_1" class="draggable d-flex justify-content-between sections p-3 mb-3">
+                      <h1 class="mt-2">Title Document</h1>
+                      <input tabindex="0" type="checkbox" name="" id="check_1">
+                    </div>
+                  </div>
+                 <div class="element-container">
+                  <span class="badge bg-primary position-absolute">Paragraph- P</span>
+                  <div draggable="true" onClick="selectElement(2, event)" id="sec_2" class="draggable d-flex justify-content-between sections p-3 mb-3">
+                    <p class="mt-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    <input tabindex="0" type="checkbox" name="" id="check_2">
+                  </div>
+                 </div>
+              </div>
+            </div>
+            <div id="split-1">
+              <div class="p-2 bg-white rounded-bottom shadow-sm position-relative">
+                <h6>Content Consistency</h6>
+              </div>
+              <div class="bg-white overflow-auto rounded-bottom shadow-sm" style="height: 77vh;">
+                <ul id="nav-tree">
+                  <li id="li2" data-value="li2">
+                    <a>
+                      Collapse 1
+                    </a>
+                    <ul>
+                      <li id="li4" data-value="li4">
+                        <a>
+                          Collapse 2
+                        </a>
+                        <ul>
+                          <li id="li6" data-value="li6">
+                            <a href="#">
+                              Link 2
+                            </a>
+                          </li>
+                          <li id="li7" data-value="li7">
+                            <a href="#">
+                              Link 3
+                            </a>
+                          </li>
+                          <li id="li8" data-value="li8">
+                            <a>
+                              Collapse 3
+                            </a>
+                            <ul>
+                              <li id="li9" data-value="li9">
+                                <a href="#">
+                                  Link 4
+                                </a>
+                              </li>
+                              <li id="li10" data-value="li10">
+                                <a href="#">
+                                  Link 5
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li id="li5" data-value="li5">
+                        <a href="#">
+                          Link 6
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+          
+                  <li id="li20" data-value="li20">
+                    <a>
+                      Collapse 10
+                    </a>
+                    <ul>
+                      <li id="li40" data-value="li40">
+                        <a>
+                          Collapse 20
+                        </a>
+                        <ul>
+                          <li id="li60" data-value="li60">
+                            <a href="#">
+                              Link 20
+                            </a>
+                          </li>
+                          <li id="li70" data-value="li70">
+                            <a href="#">
+                              Link 30
+                            </a>
+                          </li>
+                          <li id="li80" data-value="li80">
+                            <a>
+                              Collapse 30
+                            </a>
+                            <ul>
+                              <li id="li90" data-value="li90">
+                                <a href="#">
+                                  Link 40
+                                </a>
+                              </li>
+                              <li id="li100" data-value="li100">
+                                <a href="#">
+                                  Link 50
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li id="li50" data-value="li50">
+                        <a href="#">
+                          Link 60
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+          
+                  <li id="li3" data-value="li3">
+                    <a href="#">
+                      Link 7
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer bg-light d-flex align-items-center justify-content-between p-2">
+      <span class="rv_atfooter">Copyright © 2022 <a  href="https://rivervalleytechnologies.com" target="_blank">River Valley Technologies Ltd.</a> All rights reserved.</span>
+      <span class="ml-auto">Powered by <a  href="https://rivervalleytechnologies.com"><img  class="copyright_img" height="42px" width="42px" src="/ConversionScreen/assets/images/logo.png"></a></span>
+    </div>
+</body>
+</html>
